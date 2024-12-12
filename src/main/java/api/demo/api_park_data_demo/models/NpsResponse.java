@@ -15,7 +15,7 @@ public class NpsResponse {
     private String total;
     private String limit;
     private String start;
-    private List<Park> results;
+    private List<Park> data;
 
 
 }

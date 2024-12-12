@@ -1,26 +1,26 @@
 package api.demo.api_park_data_demo.controllers;
 
 import api.demo.api_park_data_demo.models.Park;
-import api.demo.api_park_data_demo.services.ParkService;
+import api.demo.api_park_data_demo.services.NationalParksService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
-@RequestMapping("/")
 public class ParkController {
 
-    private final ParkService parkService;
+    private final NationalParksService nationalParksService;
 
-    public ParkController(ParkService parkService) {
-        this.parkService = parkService;
+    public ParkController(NationalParksService nationalParksService) {
+        this.nationalParksService = nationalParksService;
     }
 
-    @GetMapping("index")
-    public String home(Model model) {
-        Park park = parkService.getSinglePark();  // Get a single park
-        model.addAttribute("park", park);  // Pass the single park to the view
-        return "index";  // Thymeleaf template
+    @GetMapping("/")
+    public String getParks(Model model) {
+        List<Park> parks = nationalParksService.fetchParks();
+        model.addAttribute("parks", parks);
+        return "index"; // Thymeleaf template name
     }
 }

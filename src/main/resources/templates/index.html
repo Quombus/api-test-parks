@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>National Parks</title>
 </head>
 <body>
-<h1> Park </h1>
-<p>
-    <strong>Park Name:</strong> <span th:text="${park != null ? park.fullName : 'Park not found'}"></span>
-</p>
+<h1>National Parks</h1>
 
+<ul>
+    <li th:each="park : ${parks}">
+        <h3 th:text="${park.name}">Park Name</h3>
+        <p th:text="${park.description}">Description</p>
+        <a th:href="${park.url}" target="_blank">More Info</a>
+    </li>
+</ul>
 </body>
 </html>
