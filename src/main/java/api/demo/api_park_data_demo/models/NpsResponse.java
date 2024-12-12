@@ -16,6 +16,6 @@ public class NpsResponse {
     private String limit;
     private String start;
     private List<Park> data;
-
+// url determines what is returned
 
 }

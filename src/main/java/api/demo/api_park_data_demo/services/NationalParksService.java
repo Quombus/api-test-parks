@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class NationalParksService {
 
-    private String apiUrl = "https://developer.nps.gov/api/v1/parks?api_key=CUzkMTnNk745wAFn8zcHRo8NqXbEFmUglCDLbgmC";
+    private String apiUrl = "https://developer.nps.gov/api/v1/parks?limit=1&start=0&api_key=CUzkMTnNk745wAFn8zcHRo8NqXbEFmUglCDLbgmC";
 
     private final RestTemplate restTemplate;
 

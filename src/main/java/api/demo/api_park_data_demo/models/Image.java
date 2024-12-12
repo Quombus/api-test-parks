@@ -1,22 +1,20 @@
 package api.demo.api_park_data_demo.models;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.awt.*;
-import java.util.ArrayList;
-
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
-public class Park {
+public class Image {
 
-    private String name;
-    private String description;
+    private String credit;
+    private String title;
+    private String altText;
+    private String caption;
     private String url;
-    private ArrayList<Image> images;
+
 
 
 }
