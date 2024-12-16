@@ -4,19 +4,20 @@
     <title>National Parks</title>
 </head>
 <body>
-<h1>National Parks</h1>
+<h1>Home Page</h1>
 
-<ul>
-    <li th:each="park : ${parks}">
-        <h3 th:text="${park.name}">Park Name</h3>
-        <p th:text="${park.description}">Description</p>
+<div>
+    <a th:href="@{/login}">login</a>
+    <a th:href="@{/signup}">Signup</a>
 
-        <div>
-            <img style=" max-width: 10%" th:src="@{${park.images[0].url}}" />
-        </div>
+</div>
 
-        <a th:href="${park.url}" target="_blank">More Info</a>
-    </li>
+<ul th:each="vark : ${varks}">
+    <li th:text="${vark.name}"></li>
+    <li th:text="${vark.description}"></li>
+    <a th:href="@{/parkview}">Go to the park</a>
 </ul>
+
+
 </body>
 </html>
