@@ -41,5 +41,16 @@ public class ParkController {
         return "signup";
     }
 
+    @GetMapping("edituser")
+    public String edituser() {
+        return "edituser";
+    }
+
+    @GetMapping("parksearch")
+    public String parksearch() {
+        return "parksearch";
+    }
+
+
 
 }
