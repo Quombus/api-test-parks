@@ -1,24 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
-    <title>National Parks</title>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
 </head>
 <body>
 <h1>Home Page</h1>
-<a th:href="@{/parksearch}">search for park</a>
-<div>
-    <a th:href="@{/login}">login</a>
-    <a th:href="@{/signup}">Signup</a>
-    <a th:href="@{/edituser}">edit user</a>
+<ul th:each="park : ${npsResponse.data}">
+<li th:text="${park.fullName}">default park name</li>
+<li th:text="${park.description}">default description</li>
 
-</div>
-
-<ul th:each="vark : ${varks}">
-    <li th:text="${vark.name}"></li>
-    <li th:text="${vark.description}"></li>
-    <a th:href="@{/parkview}">Go to the park</a>
 </ul>
-
-
 </body>
 </html>
