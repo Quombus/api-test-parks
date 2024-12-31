@@ -22,9 +22,6 @@ import java.util.List;
 @Entity
 public class Park {
 
-
-
-
     @Id
     @Column(unique = true)
     private String parkCode;

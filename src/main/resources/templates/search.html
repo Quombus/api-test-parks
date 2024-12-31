@@ -7,5 +7,29 @@
 <body>
 <h1>Search Page</h1>
 
+<div class="container body-content">
+
+
+    <form th:action="@{/search/results}" method = "post">
+        <h2>Search by:</h2>
+
+
+        <p>
+            <label for="searchTerm">Keyword:</label>
+            <input type="text" name="searchTerm" id="searchTerm" />
+        </p>
+
+        <input type="submit" value="Search" />
+    </form>
+
+    <div th:each="park : ${parks}">
+        <h1 th:text="${park.fullName}">Default Name</h1>
+        <a th:href="@{'/parks/view/' + ${park.parkCode}}" th:text="${park.fullName}"></a>
+        <div th:each=" image : ${park.images[0]}">
+            <img th:src="${image.url}" width="400" height="200"/>
+        </div>
+        <p th:text="${park.description}"></p>
+    </div>
+</div>
 </body>
 </html>
