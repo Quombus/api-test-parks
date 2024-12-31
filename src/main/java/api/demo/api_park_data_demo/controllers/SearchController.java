@@ -30,7 +30,7 @@ public class SearchController {
     }
 
     @PostMapping("results")
-    public String searchForPark(Model model, @RequestParam String searchTerm ) {
+    public String searchForPark(Model model, @RequestParam String searchFullName ) {
         ObjectMapperDemo objectMapperDemo = new ObjectMapperDemo();
         NpsResponse response;
         List<Park> parksToRender = new ArrayList<>();
@@ -41,8 +41,12 @@ public class SearchController {
             throw new RuntimeException(e);
         }
 
+        if (searchFullName.isEmpty() || searchFullName.equalsIgnoreCase("all")) {
+            parksToRender = response.getData();
+        }
+
         for (Park park : response.getData()) {
-            if (park.getFullName().contains(searchTerm)) {
+            if (park.getFullName().contains(searchFullName)) {
                 parksToRender.add(park);
             }
         }
